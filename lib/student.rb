@@ -100,6 +100,12 @@ class Student
     results = DB[:conn].execute(sql)
     self.new_from_db(results[0])
   end
+  
+  def self.all_students_in_grade_X(x)
+    
+    
+    
+  end
 
   def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
