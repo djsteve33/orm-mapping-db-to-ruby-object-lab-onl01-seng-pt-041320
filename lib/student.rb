@@ -88,6 +88,18 @@ class Student
        self.new_from_db(row)
      end
   end
+  
+  def self.first_student_in_grade_10
+    sql = <<-SQL
+    SELECT *
+    FROM students
+    WHERE grade = 10
+    LIMIT 1 
+    SQL
+    
+    results = DB[:conn].execute(sql)
+    self.new_from_db(results[0])
+  end
 
   def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
